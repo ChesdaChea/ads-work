@@ -258,6 +258,68 @@ footer {
 </div>
 
 
+<div class="post">
+
+
+<h2>
+ត្រៀមរៀបចំព្រឹត្តិការណ៍ "អង្គរសង្ក្រាន្ត" ដ៏ធំសម្បើមនៅខេត្តសៀមរាប
+</h2>
+
+
+<div class="sknteam_image">
+
+<img src="https://sknteam.com/media/ai_cambodia.jpeg">
+
+</div>
+
+
+
+<p>
+ខេត្តសៀមរាប៖ អាជ្ញាធរខេត្តសៀមរាបបានប្រកាសថា
+ត្រៀមរៀបចំព្រឹត្តិការណ៍អង្គរសង្ក្រាន្តឆ្នាំ២០២៦។
+</p>
+
+
+
+<p>
+ព្រឹត្តិការណ៍នេះនឹងមានការបង្ហាញវប្បធម៌ខ្មែរ
+ល្បែងប្រជាប្រិយ និងការប្រគំតន្ត្រី។
+</p>
+
+
+</div>
+
+<div class="post">
+
+
+<h2>
+ត្រៀមរៀបចំព្រឹត្តិការណ៍ "អង្គរសង្ក្រាន្ត" ដ៏ធំសម្បើមនៅខេត្តសៀមរាប
+</h2>
+
+
+<div class="sknteam_image">
+
+<img src="https://sknteam.com/media/ai_cambodia.jpeg">
+
+</div>
+
+
+
+<p>
+ខេត្តសៀមរាប៖ អាជ្ញាធរខេត្តសៀមរាបបានប្រកាសថា
+ត្រៀមរៀបចំព្រឹត្តិការណ៍អង្គរសង្ក្រាន្តឆ្នាំ២០២៦។
+</p>
+
+
+
+<p>
+ព្រឹត្តិការណ៍នេះនឹងមានការបង្ហាញវប្បធម៌ខ្មែរ
+ល្បែងប្រជាប្រិយ និងការប្រគំតន្ត្រី។
+</p>
+
+
+</div>
+
 <footer>
 
 រក្សាសិទ្ធិគ្រប់យ៉ាង © 2026 Khmer Daily News
@@ -321,7 +383,6 @@ footer {
 
 <script>
 
-
 (function(){
 
 
@@ -342,15 +403,25 @@ let scrollY = 0;
 
 
 
+// Check mobile size only
+function isMobile(){
+
+    return window.innerWidth <= 768;
+
+}
+
+
+
+
 function lockScroll(){
 
-scrollY = window.scrollY;
+    scrollY = window.scrollY;
 
 
-document.body.style.position="fixed";
+    document.body.style.position="fixed";
 
-document.body.style.top =
-`-${scrollY}px`;
+    document.body.style.top =
+    `-${scrollY}px`;
 
 }
 
@@ -359,29 +430,42 @@ document.body.style.top =
 function unlockScroll(){
 
 
-document.body.style.position="";
+    document.body.style.position="";
 
-document.body.style.top="";
+    document.body.style.top="";
 
 
-window.scrollTo(0,scrollY);
+    window.scrollTo(0,scrollY);
 
 
 }
+
+
 
 
 
 function showAd(){
 
 
-overlay.classList.add("show");
+    // Stop popup on desktop
+    if(!isMobile()){
 
-lockScroll();
+        return;
 
-fitAd();
+    }
+
+
+    overlay.classList.add("show");
+
+
+    lockScroll();
+
+
+    fitAd();
 
 
 }
+
 
 
 
@@ -389,12 +473,14 @@ fitAd();
 function hideAd(){
 
 
-overlay.classList.remove("show");
+    overlay.classList.remove("show");
 
-unlockScroll();
+
+    unlockScroll();
 
 
 }
+
 
 
 
@@ -402,20 +488,23 @@ unlockScroll();
 function fitAd(){
 
 
-let scale =
-Math.min(
 
-window.innerWidth / 320,
+    let scale =
+    Math.min(
 
-window.innerHeight / 600,
+        window.innerWidth / 320,
 
-1
+        window.innerHeight / 600,
 
-);
+        1
+
+    );
 
 
-ad.style.transform =
-`scale(${scale})`;
+
+    ad.style.transform =
+    `scale(${scale})`;
+
 
 
 }
@@ -424,25 +513,57 @@ ad.style.transform =
 
 
 
+// Show popup only when mobile
 window.addEventListener(
 "load",
 ()=>{
 
-setTimeout(showAd,300);
 
-}
-
-);
+    if(isMobile()){
 
 
+        setTimeout(showAd,300);
 
+
+    }
+
+
+});
+
+
+
+
+
+// Keep responsive
 window.addEventListener(
 "resize",
-fitAd
-);
+()=>{
+
+
+    if(isMobile()){
+
+
+        fitAd();
+
+
+    }
+    else{
+
+
+        // Hide popup if user changes to desktop size
+        hideAd();
+
+
+    }
+
+
+});
 
 
 
+
+
+// Close button
 closeBtn.addEventListener(
 "click",
 hideAd
@@ -450,40 +571,50 @@ hideAd
 
 
 
+
+
+// Click outside popup
 overlay.addEventListener(
 "click",
 (e)=>{
 
-if(e.target===overlay){
 
-hideAd();
-
-}
-
-}
-
-);
+    if(e.target===overlay){
 
 
+        hideAd();
 
+
+    }
+
+
+});
+
+
+
+
+
+
+// ESC close
 document.addEventListener(
 "keydown",
 (e)=>{
 
-if(e.key==="Escape"){
 
-hideAd();
+    if(e.key==="Escape"){
 
-}
 
-}
+        hideAd();
 
-);
+
+    }
+
+
+});
 
 
 
 })();
-
 
 </script>
 
