@@ -416,15 +416,18 @@ function isMobile(){
 
 
 // Close automatically when the ad animation ends
-lottie.addEventListener(
-"complete",
-()=>{
+// Wait for lottie-player to be ready
+if(lottie.ready){
+    lottie.addEventListener("complete", hideAd);
+} else {
+    lottie.addEventListener("load", ()=>{
+        lottie.addEventListener("complete", hideAd);
+    });
+}
 
-
-    hideAd();
-
-
-});
+// Fallback: Also try alternative event names for compatibility
+lottie.addEventListener("lottieComplete", hideAd);
+lottie.addEventListener("lottie-complete", hideAd);
 
 
 function lockScroll(){
@@ -536,7 +539,7 @@ window.addEventListener(
     if(isMobile()){
 
 
-        setTimeout(showAd,300);
+        showAd();
 
 
     }
