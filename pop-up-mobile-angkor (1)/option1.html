@@ -354,8 +354,6 @@ footer {
 
             speed="1"
 
-            loop
-
             autoplay>
 
         </lottie-player>
@@ -398,6 +396,12 @@ const ad =
 document.getElementById("adContent");
 
 
+const lottie =
+document.getElementById("modalLottie");
+
+
+const landingPageUrl = "https://carlsbergstore.my.canva.site/angkor-together-as-fan?fbclid=IwY2xjawS5p7xleHRuA2FlbQIxMABicmlkETFyR1RYVVZvaUd1RDFtdkxBc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHpci3XjBt7PE6mmbmLYuZ26Q4C4lty_EmfUcVsfGdX-EKZNz_XTp_slNdjns_aem_gOohcNr0oEliIwgAR92LsA"; // Replace with your actual landing page URL
+
 
 let scrollY = 0;
 
@@ -411,6 +415,16 @@ function isMobile(){
 }
 
 
+// Close automatically when the ad animation ends
+lottie.addEventListener(
+"complete",
+()=>{
+
+
+    hideAd();
+
+
+});
 
 
 function lockScroll(){
@@ -566,8 +580,29 @@ window.addEventListener(
 // Close button
 closeBtn.addEventListener(
 "click",
-hideAd
+(e)=>{
+
+
+    e.stopPropagation();
+
+
+    hideAd();
+
+
+}
 );
+
+
+// Click on ad content -> go to landing page
+ad.addEventListener(
+"click",
+()=>{
+
+
+    window.location.href = landingPageUrl;
+
+
+});
 
 
 
