@@ -100,7 +100,7 @@
     <div id="ad-container" class="banner" role="dialog" aria-label="Advertisement" aria-describedby="ad-desc">
         <!-- in-ad close removed; demo modal provides close control -->
 
-        <lottie-player id="ad-lottie" src="./data.json" background="transparent" speed="1" loop autoplay aria-hidden="true">
+        <lottie-player id="ad-lottie" src="./data2.json" background="transparent" speed="1" loop autoplay aria-hidden="true">
         </lottie-player>
 
         <div id="ad-desc" class="visually-hidden">Promotional content. Click button to visit advertiser.</div>
@@ -113,11 +113,11 @@
 
         <script>
             (function(){
-                fetch('./data.json').then(function(res){
+                fetch('./data2.json').then(function(res){
                     if(!res.ok) throw new Error('HTTP '+res.status);
                     return res.json();
                 }).then(function(json){
-                    console.log('data1.json loaded OK');
+                    console.log('data2.json loaded OK');
                 }).catch(function(err){
                     console.error('Failed to load data1.json:', err);
                     var msg=document.createElement('div');

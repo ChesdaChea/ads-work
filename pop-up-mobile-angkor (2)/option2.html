@@ -95,9 +95,9 @@ footer {
 
 .ad-content {
 
-    width:320px;
+    width:min(320px, 92vw);
 
-    height:600px;
+    max-height:90vh;
 
     position:relative;
 
@@ -115,9 +115,13 @@ footer {
 
 #adOverlay lottie-player {
 
-    width:320px;
+    display:block;
 
-    height:600px;
+    width:100%;
+
+    height:auto;
+
+    aspect-ratio:320 / 600;
 
     border-radius:25px;
 
@@ -519,8 +523,7 @@ function fitAd(){
 
 
 
-    ad.style.transform =
-    `scale(${scale})`;
+    ad.style.transform = "scale(1)";
 
 
 
@@ -530,20 +533,16 @@ function fitAd(){
 
 
 
-// Show popup only when mobile
+// Show popup immediately on mobile once the page is loaded
 window.addEventListener(
 "load",
 ()=>{
 
-
     if(isMobile()){
-
 
         showAd();
 
-
     }
-
 
 });
 
