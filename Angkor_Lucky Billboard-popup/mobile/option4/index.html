@@ -101,7 +101,7 @@
     <div id="ad-container" class="banner" role="dialog" aria-label="Advertisement" aria-describedby="ad-desc">
         <!-- in-ad close removed; demo modal provides close control -->
 
-        <lottie-player id="ad-lottie" src="./data.json" background="transparent" speed="1" loop autoplay aria-hidden="true">
+        <lottie-player id="ad-lottie" src="./option4.json" background="transparent" speed="1" loop autoplay aria-hidden="true">
         </lottie-player>
 
         <div id="ad-desc" class="visually-hidden">Promotional content. Click button to visit advertiser.</div>
@@ -114,16 +114,16 @@
 
         <script>
             (function(){
-                fetch('./data.json').then(function(res){
+                fetch('./option4.json').then(function(res){
                     if(!res.ok) throw new Error('HTTP '+res.status);
                     return res.json();
                 }).then(function(json){
-                    console.log('data1.json loaded OK');
+                    console.log('option4.json loaded OK');
                 }).catch(function(err){
-                    console.error('Failed to load data1.json:', err);
+                    console.error('Failed to load option4.json:', err);
                     var msg=document.createElement('div');
                     msg.style.cssText='position:fixed;left:0;top:0;background:#ffdb57;color:#000;padding:8px;z-index:99999;font-family:Arial,sans-serif';
-                    msg.textContent='Error loading data1.json — serve the folder over HTTP (e.g. `python -m http.server`). See console for details.';
+                    msg.textContent='Error loading option4.json — serve the folder over HTTP (e.g. `python -m http.server`). See console for details.';
                     document.body.appendChild(msg);
                 });
             })();
