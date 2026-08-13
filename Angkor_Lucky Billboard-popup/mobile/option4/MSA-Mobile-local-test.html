@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="ad.size" content="width=320,height=600">
+<title>MSA Mobile Popup Local Test</title>
+<style>
+html,body{margin:0;padding:0;min-height:100%;font-family:Arial,sans-serif;background:#f4f4f4}
+.demo{padding:24px 18px}
+#wrap{position:fixed;inset:0;z-index:2147483647;display:flex;align-items:center;justify-content:center;width:100vw;height:100dvh;padding:16px;box-sizing:border-box;background:transparent;visibility:hidden;opacity:0;pointer-events:none}
+#wrap.show{visibility:visible;opacity:1}
+#box{position:relative;width:min(320px,calc(100vw - 32px));height:min(600px,calc(100dvh - 32px));overflow:hidden;border-radius:0;background:transparent;pointer-events:auto}
+#ad,#ad lottie-player{display:block;width:100%;height:100%;background:transparent}
+#close{position:absolute;top:10px;right:10px;z-index:10;width:40px;height:40px;padding:0;border:0;background:transparent;color:#fff;font:400 30px/1 Arial,sans-serif;cursor:pointer;text-shadow:0 1px 3px rgba(0,0,0,.65)}
+@media(max-height:640px){#box{width:min(320px,calc((100dvh - 32px)*.5333),calc(100vw - 32px));height:calc(100dvh - 32px)}}
+</style>
+<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+</head>
+<body>
+<div class="demo"><h1>Mobile Local Popup Test</h1><p>Place data.json beside this file.</p></div>
+<div id="wrap">
+  <div id="box">
+    <div id="ad" role="link" tabindex="0">
+      <lottie-player id="lottie" src="./data.json" background="transparent" speed="1" autoplay></lottie-player>
+    </div>
+    <button id="close" aria-label="Close">&times;</button>
+  </div>
+</div>
+<script>
+(function(){
+'use strict';
+var URL='https://www.facebook.com/AngkorBeerOfficial';
+var LOAD_TIMEOUT_MS=10000,AUTO_CLOSE_MS=5000;
+var wrap=document.getElementById('wrap'),ad=document.getElementById('ad'),lottie=document.getElementById('lottie'),close=document.getElementById('close');
+var shown=false,loadTimer=null,closeTimer=null;
+function hide(){if(loadTimer)clearTimeout(loadTimer);if(closeTimer)clearTimeout(closeTimer);wrap.classList.remove('show')}
+function show(){if(shown)return;shown=true;if(loadTimer)clearTimeout(loadTimer);wrap.classList.add('show');closeTimer=setTimeout(hide,AUTO_CLOSE_MS)}
+lottie.addEventListener('ready',show,{once:true});
+lottie.addEventListener('load',show,{once:true});
+loadTimer=setTimeout(function(){if(!shown)hide()},LOAD_TIMEOUT_MS);
+close.addEventListener('click',function(e){e.stopPropagation();hide()});
+function openAd(){window.open(URL,'_blank','noopener,noreferrer')}
+ad.addEventListener('click',openAd);
+ad.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();openAd()}});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')hide()});
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+Report created: 
+	8/13/2026	5:38:31 PM
+
+Project name: StingUpdate.aep
+
+Source files collected to: 
+	C:\Users\Kid\Downloads\Telegram Desktop\stingUnderlay
+
+Source files collected: All
+
+Collected comps:  
+	Comp 1
+	
+Number of collected files:  15
+
+Size of collected files:  9.2 MB
+
+Collected source files: 
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\1500៛.png
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\240ម.ល_.png
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\AQNYxp4Ktoc2N6FTsIUXCyhv8KlKUv-UnF3j1mln_n-wQPfBkvgQr5IPnOzABdXLDsVP8-b78bxlHlg4RX8OBQzvWjHeiXj1RGViH2uaLi3FmQ.mp4
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\BG.png
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\Body.png
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\Mini Can.png
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\Shield Icon.png
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\Sting Logo copy.png
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\Strip Bottom copy 2.png
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\Vector Smart Object.png
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\តម្លៃ.png
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\តម្លៃណែនាំក្នុងមួយកំប៉ុង.png
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\តូចច្រឡឹង.png
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\ល្មមម៉ង.png
+	C:\Users\Kid\Downloads\Telegram Desktop\Untitled Project folder\Untitled Project folder\(Footage)\sting mini lauch asset\ស្ទីងកំប៉ុង.png
+	
+Rendering plug-ins:
+	Classic 3D
+	

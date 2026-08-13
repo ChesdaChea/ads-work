@@ -1,0 +1,379 @@
+<html lang="en"><head><script type="text/javascript" id="mobile-simulator">
+                let pushState = History.prototype.pushState;
+                History.prototype.pushState = function(state, title, url) {
+                    let event = new CustomEvent('pushState', { detail: { state: state, title: title, url: url }});
+                    window.frameElement.dispatchEvent(event);
+                    pushState.call(this, state, title, url)
+                };</script><style id="mobile-simulator">
+            body {
+                display: block !important;
+            }
+            * {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: optimize-contrast;
+            }
+            *:not([data-js="simulator-extension"]) {
+                cursor: url(moz-extension://02c8c058-80a2-41f2-abec-6ab2f6441767/assets/pictos/cursor.png) 17 17, pointer !important;
+                scrollbar-width: none;
+            }
+            ::-webkit-scrollbar {
+                background: transparent;
+                width: 0 !important;
+                height: 0 !important;
+            }
+            ::-webkit-scrollbar-thumb {
+                width: 0 !important;
+                background: rgba(0,0,0,0.5);
+                border: solid 3px transparent;
+                background-clip: content-box;
+                border-radius: 17px;
+            }</style><script type="text/javascript" id="mobile-simulator">
+            Object.defineProperty(window.navigator, "userAgent", { value: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) CriOS/60.0.3112.89 Mobile/15A5370a Safari/602.1", writable : false });
+            Object.defineProperty(window.screen, "availWidth",{ value: 390, writable : false });
+            Object.defineProperty(window.screen, "width",{ value: 390, writable : false });
+            Object.defineProperty(window, "devicePixelRatio",{ value: 3, writable : false });
+            Object.defineProperty(window, "outerWidth",{ value: 390, writable : false });
+            Object.defineProperty(window, "outerHeight",{ value: 844, writable : false });
+            //Object.defineProperty(window.navigator, "serviceWorker", { value: "", writable : false });
+            ServiceWorkerContainer.prototype.register = function() { return new Promise((resolve, reject) => { reject(); }) };</script><script type="text/javascript" id="mobile-simulator">
+                let pushState = History.prototype.pushState;
+                History.prototype.pushState = function(state, title, url) {
+                    let event = new CustomEvent('pushState', { detail: { state: state, title: title, url: url }});
+                    window.frameElement.dispatchEvent(event);
+                    pushState.call(this, state, title, url)
+                };</script><style id="mobile-simulator">
+            body {
+                display: block !important;
+            }
+            * {
+                image-rendering: -webkit-optimize-contrast;
+                image-rendering: optimize-contrast;
+            }
+            *:not([data-js="simulator-extension"]) {
+                cursor: url(moz-extension://02c8c058-80a2-41f2-abec-6ab2f6441767/assets/pictos/cursor.png) 17 17, pointer !important;
+                scrollbar-width: none;
+            }
+            ::-webkit-scrollbar {
+                background: transparent;
+                width: 0 !important;
+                height: 0 !important;
+            }
+            ::-webkit-scrollbar-thumb {
+                width: 0 !important;
+                background: rgba(0,0,0,0.5);
+                border: solid 3px transparent;
+                background-clip: content-box;
+                border-radius: 17px;
+            }</style><script type="text/javascript" id="mobile-simulator">
+            Object.defineProperty(window.navigator, "userAgent", { value: "Mozilla/5.0 (iPhone; CPU iPhone OS 12_0 like Mac OS X) AppleWebKit/603.1.30 (KHTML, like Gecko) CriOS/60.0.3112.89 Mobile/15A5370a Safari/602.1", writable : false });
+            Object.defineProperty(window.screen, "availWidth",{ value: 390, writable : false });
+            Object.defineProperty(window.screen, "width",{ value: 390, writable : false });
+            Object.defineProperty(window, "devicePixelRatio",{ value: 3, writable : false });
+            Object.defineProperty(window, "outerWidth",{ value: 390, writable : false });
+            Object.defineProperty(window, "outerHeight",{ value: 844, writable : false });
+            //Object.defineProperty(window.navigator, "serviceWorker", { value: "", writable : false });
+            ServiceWorkerContainer.prototype.register = function() { return new Promise((resolve, reject) => { reject(); }) };</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Blog Post</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 20px auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+
+      header {
+        text-align: center;
+        padding: 20px 0;
+        border-bottom: 1px solid #ddd;
+      }
+
+      header h1 {
+        margin: 0;
+      }
+
+      .post {
+        padding: 20px 0;
+      }
+
+      .post h2 {
+        color: #333;
+      }
+
+      .post p {
+        line-height: 1.6;
+      }
+
+      footer {
+        text-align: center;
+        padding: 20px 0;
+        border-top: 1px solid #ddd;
+        color: #777;
+      }
+
+      .thestreet_image {
+        text-align: center;
+      }
+
+      .thestreet_image img {
+        width: 350px;
+      }
+
+      .thestresstnews-container {
+        width: 100%;
+        font-family: Arial, sans-serif;
+        overflow: hidden;
+        position: absolute;
+        z-index: 100;
+        left: 0;
+      }
+
+      .thestresstnews-bg {
+        background-image: url(https://thestreetnews.sgp1.cdn.digitaloceanspaces.com/image_ford/land-rover.jpg);
+        background-size: cover;
+        background-position-x: center;
+        width: 100%;
+        height: 350px;
+      }
+
+      .thestresstnews-app-info {
+        background-color: #ffffff;
+        padding: 12px;
+      }
+
+      .thestresstnews-app-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 8px;
+      }
+
+      .thestresstnews-app-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+      .thestresstnews-app-icon img {
+        width: 40px;
+        height: 30px;
+      }
+
+      .thestresstnews-app-details {
+        flex-grow: 1;
+      }
+
+      .thestresstnews-app-title {
+        font-size: 14px;
+        font-weight: bold;
+        margin: 0 0 4px 0;
+        color: #333;
+      }
+
+      .thestresstnews-app-description {
+        font-size: 12px;
+        color: #666;
+        margin: 0 0 4px 0;
+      }
+
+      .thestresstnews-app-meta {
+        font-size: 12px;
+
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .more-button {
+        color: #666;
+        background: none;
+        border: none;
+        font-size: 20px;
+        cursor: pointer;
+        padding: 0;
+      }
+
+      .thestresstnews-buttons {
+        display: flex;
+        gap: 8px;
+        margin-top: 12px;
+      }
+
+      .thestresstnews-watch-button,
+      .thestresstnews-install-button {
+        flex: 1;
+        padding: 8px;
+        border-radius: 20px;
+        border: none;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+        text-align: center;
+        font-weight: 600;
+      }
+
+      .thestresstnews-watch-button {
+        background-color: #f0f0f0;
+        color: #333;
+      }
+
+      .thestresstnews-install-button {
+        background-color: #1a73e8;
+        color: white;
+      }
+      .thestresstnews-brand-name {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body><div class="ThestresstNews-apps-wrapper-5942" style="display: block;"><div class="ThestresstNews-inner-content-5942" id="innerWrapper-5942" style="width: 390px; height: 864px; clip: rect(-85.9333px, 390px, 769.067px, 0px);"><a id="ThestresstNews-external-link-5942" href="https://www.facebook.com/StingCambodia" target="_blank"></a><iframe src="https://thestreetnews.sgp1.cdn.digitaloceanspaces.com/adshtml/Nov-2025/underlay/sting/v1/index2.html?ver=2022" id="ThestresstNewsAppsIframe5942" class="ThestresstNews-apps-iframe-5942" allowfullscreen="true" webkitallowfullscreen="true" scrolling="no" style="height: 864px;"></iframe></div></div>
+    <div class="container">
+      <header>
+        <h1>The Street News</h1>
+      </header>
+      <div class="post">
+        <h2>My First Blog Post</h2>
+        <div class="thestreet_image">
+          <img src="https://thestreetnews.sgp1.cdn.digitaloceanspaces.com/adshtml/aug-2024/angkor-underlay/demo/images/thestreet.png" alt="thestreet" srcset="">
+        </div>
+
+        <p>
+          Morbi scelerisque varius enim, ac consequat sapien consectetur id. Ut
+          non mi purus. Nullam molestie felis sit amet nisl suscipit, sed
+          tincidunt arcu tincidunt. Etiam nec metus vel est malesuada
+          scelerisque. Aenean efficitur, nisi vel vehicula scelerisque, leo
+          metus malesuada arcu, non dignissim urna nisl et urna. In id purus nec
+          mauris vehicula sodales. Aenean ac purus ac neque sagittis efficitur.
+        </p>
+
+        <p>
+          Morbi scelerisque varius enim, ac consequat sapien consectetur id. Ut
+          non mi purus. Nullam molestie felis sit amet nisl suscipit, sed
+          tincidunt arcu tincidunt. Etiam nec metus vel est malesuada
+          scelerisque. Aenean efficitur, nisi vel vehicula scelerisque, leo
+          metus malesuada arcu, non dignissim urna nisl et urna. In id purus nec
+          mauris vehicula sodales. Aenean ac purus ac neque sagittis efficitur.
+        </p>
+        <div id="ThestresstNews-container-5942" class="ThestresstNews-apps-container-5942" style="width: 390px; height: 864px; margin-left: -20px; display: block;"></div><div id="app-clip-content-5942"></div><div data-demo-link="https://thestreetnews.sgp1.cdn.digitaloceanspaces.com/adshtml/Nov-2025/underlay/sting/v1/index2.html?ver=2022" data-link="https://www.facebook.com/StingCambodia">
+          <script src="https://thestreetnews.sgp1.cdn.digitaloceanspaces.com/adshtml/resources/thestreetnews-mobile-underlay-script2.js"></script>
+        </div>
+        <p>
+          Morbi scelerisque varius enim, ac consequat sapien consectetur id. Ut
+          non mi purus. Nullam molestie felis sit amet nisl suscipit, sed
+          tincidunt arcu tincidunt. Etiam nec metus vel est malesuada
+          scelerisque. Aenean efficitur, nisi vel vehicula scelerisque, leo
+          metus malesuada arcu, non dignissim urna nisl et urna. In id purus nec
+          mauris vehicula sodales. Aenean ac purus ac neque sagittis efficitur.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque nec
+          purus eu erat pulvinar tempor. Nullam in justo risus. Sed scelerisque,
+          lorem quis dignissim feugiat, sapien felis dignissim felis, et
+          consectetur ex ligula in metus. Cras malesuada erat ac lacus
+          consectetur, ac tincidunt orci hendrerit. Curabitur auctor consequat
+          mi et facilisis. Integer bibendum arcu vitae arcu tristique, ut
+          vestibulum ligula bibendum.
+        </p>
+
+        <p>
+          Morbi scelerisque varius enim, ac consequat sapien consectetur id. Ut
+          non mi purus. Nullam molestie felis sit amet nisl suscipit, sed
+          tincidunt arcu tincidunt. Etiam nec metus vel est malesuada
+          scelerisque. Aenean efficitur, nisi vel vehicula scelerisque, leo
+          metus malesuada arcu, non dignissim urna nisl et urna. In id purus nec
+          mauris vehicula sodales. Aenean ac purus ac neque sagittis efficitur.
+        </p>
+        <p>
+          Morbi scelerisque varius enim, ac consequat sapien consectetur id. Ut
+          non mi purus. Nullam molestie felis sit amet nisl suscipit, sed
+          tincidunt arcu tincidunt. Etiam nec metus vel est malesuada
+          scelerisque. Aenean efficitur, nisi vel vehicula scelerisque, leo
+          metus malesuada arcu, non dignissim urna nisl et urna. In id purus nec
+          mauris vehicula sodales. Aenean ac purus ac neque sagittis efficitur.
+        </p>
+        <p>
+          Morbi scelerisque varius enim, ac consequat sapien consectetur id. Ut
+          non mi purus. Nullam molestie felis sit amet nisl suscipit, sed
+          tincidunt arcu tincidunt. Etiam nec metus vel est malesuada
+          scelerisque. Aenean efficitur, nisi vel vehicula scelerisque, leo
+          metus malesuada arcu, non dignissim urna nisl et urna. In id purus nec
+          mauris vehicula sodales. Aenean ac purus ac neque sagittis efficitur.
+        </p>
+        <p>
+          Morbi scelerisque varius enim, ac consequat sapien consectetur id. Ut
+          non mi purus. Nullam molestie felis sit amet nisl suscipit, sed
+          tincidunt arcu tincidunt. Etiam nec metus vel est malesuada
+          scelerisque. Aenean efficitur, nisi vel vehicula scelerisque, leo
+          metus malesuada arcu, non dignissim urna nisl et urna. In id purus nec
+          mauris vehicula sodales. Aenean ac purus ac neque sagittis efficitur.
+        </p>
+
+        <p>
+          Morbi scelerisque varius enim, ac consequat sapien consectetur id. Ut
+          non mi purus. Nullam molestie felis sit amet nisl suscipit, sed
+          tincidunt arcu tincidunt. Etiam nec metus vel est malesuada
+          scelerisque. Aenean efficitur, nisi vel vehicula scelerisque, leo
+          metus malesuada arcu, non dignissim urna nisl et urna. In id purus nec
+          mauris vehicula sodales. Aenean ac purus ac neque sagittis efficitur.
+        </p>
+        <p>
+          Morbi scelerisque varius enim, ac consequat sapien consectetur id. Ut
+          non mi purus. Nullam molestie felis sit amet nisl suscipit, sed
+          tincidunt arcu tincidunt. Etiam nec metus vel est malesuada
+          scelerisque. Aenean efficitur, nisi vel vehicula scelerisque, leo
+          metus malesuada arcu, non dignissim urna nisl et urna. In id purus nec
+          mauris vehicula sodales. Aenean ac purus ac neque sagittis efficitur.
+        </p>
+        <p>
+          Morbi scelerisque varius enim, ac consequat sapien consectetur id. Ut
+          non mi purus. Nullam molestie felis sit amet nisl suscipit, sed
+          tincidunt arcu tincidunt. Etiam nec metus vel est malesuada
+          scelerisque. Aenean efficitur, nisi vel vehicula scelerisque, leo
+          metus malesuada arcu, non dignissim urna nisl et urna. In id purus nec
+          mauris vehicula sodales. Aenean ac purus ac neque sagittis efficitur.
+        </p>
+        <p>
+          Morbi scelerisque varius enim, ac consequat sapien consectetur id. Ut
+          non mi purus. Nullam molestie felis sit amet nisl suscipit, sed
+          tincidunt arcu tincidunt. Etiam nec metus vel est malesuada
+          scelerisque. Aenean efficitur, nisi vel vehicula scelerisque, leo
+          metus malesuada arcu, non dignissim urna nisl et urna. In id purus nec
+          mauris vehicula sodales. Aenean ac purus ac neque sagittis efficitur.
+        </p>
+        <p>
+          Morbi scelerisque varius enim, ac consequat sapien consectetur id. Ut
+          non mi purus. Nullam molestie felis sit amet nisl suscipit, sed
+          tincidunt arcu tincidunt. Etiam nec metus vel est malesuada
+          scelerisque. Aenean efficitur, nisi vel vehicula scelerisque, leo
+          metus malesuada arcu, non dignissim urna nisl et urna. In id purus nec
+          mauris vehicula sodales. Aenean ac purus ac neque sagittis efficitur.
+        </p>
+        <p>
+          Morbi scelerisque varius enim, ac consequat sapien consectetur id. Ut
+          non mi purus. Nullam molestie felis sit amet nisl suscipit, sed
+          tincidunt arcu tincidunt. Etiam nec metus vel est malesuada
+          scelerisque. Aenean efficitur, nisi vel vehicula scelerisque, leo
+          metus malesuada arcu, non dignissim urna nisl et urna. In id purus nec
+          mauris vehicula sodales. Aenean ac purus ac neque sagittis efficitur.
+        </p>
+        <div class="thestreet_image">
+          <img src="https://thestreetnews.sgp1.cdn.digitaloceanspaces.com/adshtml/aug-2024/angkor-underlay/demo/images/thestreet.png" alt="thestreet" srcset="">
+        </div>
+      </div>
+      <footer>{{}} © 2024 The Street News</footer>
+    </div>
+  
+
+<style>.ThestresstNews-apps-wrapper-5942 {position: absolute;top: 0;left: 0;overflow: visible;z-index: 99999;;padding:0;margin:0;}.ThestresstNews-inner-content-5942 {position: fixed;top: 0;left: 0;overflow: hidden;z-index: 99998;;padding:0;margin:0;text-align: left !important;}.ThestresstNews-apps-iframe-5942 {max-width: 100% !important; width: 100%;position: absolute;visibility: visible;padding:0;margin:0;border:0;}.ThestresstNews-apps-container-5942 {position: relative;left: 0;top: 0;overflow: hidden;}</style></body></html>

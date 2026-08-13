@@ -1,0 +1,224 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Video + Lottie Ad</title>
+
+  <link rel="stylesheet" href="./style2.css" />
+
+  <script src="./sknteam_underlay.min.js"></script>
+  <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    #wrapper,
+    #banner-content {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* MAIN CONTAINER: Video = 28.5% | Lottie = 71.5% */
+    #content-animation {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: stretch;
+      overflow: hidden;
+    }
+
+    /* ==========================================
+       VIDEO
+       ========================================== */
+    .video {
+      position: relative;
+      width: 100%;
+      height: 28.5%;
+      flex-shrink: 0;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    #video {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    /* ==========================================
+       LOTTIE
+       ========================================== */
+    #ad-lottie {
+      position: relative;
+      width: 100% !important;
+      height: 71.5%;
+      flex-shrink: 0;
+      display: block;
+      z-index: 2;
+      background: transparent;
+    }
+
+    /* Force full cover for Lottie shadow DOM SVG & Background Image */
+    #ad-lottie svg {
+      width: 100% !important;
+      height: 100% !important;
+      object-fit: cover;
+    }
+
+    /* Ensures img_5.jpg background inside Lottie fills entire viewBox */
+    #ad-lottie svg g.png:first-child {
+      transform: matrix(1, 0, 0, 1, 0, 0) !important;
+    }
+
+    #ad-lottie svg g.png:first-child image {
+      width: 640px !important;
+      height: 1386px !important;
+      preserveAspectRatio: xMidYMid slice !important;
+    }
+
+    /* ==========================================
+       MUTE BUTTON
+       ========================================== */
+    .mute-button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      margin: 0;
+      border: none;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.25);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .mute-button img {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
+
+    /* ==========================================
+       CLICK LINK
+       ========================================== */
+    #external-link {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="wrapper">
+    <div id="banner-content">
+      <div id="content-animation">
+
+        <!-- TOP VIDEO -->
+        <div class="video">
+          <video
+            id="video"
+            src="./images/AQNYxp4Ktoc2N6FTsIUXCyhv8KlKUv-UnF3j1mln_n-wQPfBkvgQr5IPnOzABdXLDsVP8-b78bxlHlg4RX8OBQzvWjHeiXj1RGViH2uaLi3FmQ.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+          ></video>
+        </div>
+
+        <!-- BOTTOM LOTTIE -->
+        <lottie-player
+          id="ad-lottie"
+          src="./data.json"
+          background="transparent"
+          speed="1"
+          preserveAspectRatio="xMidYMid slice"
+          loop
+          autoplay>
+        </lottie-player>
+
+        <!-- CLICKABLE AREA -->
+        <a id="external-link" href="#" target="_blank"></a>
+
+        <!-- MUTE / UNMUTE -->
+        <button
+          class="mute-button"
+          id="muteButton"
+          type="button"
+          aria-label="Unmute video">
+          <img
+            id="muteIcon"
+            src="https://thestreetnews.sgp1.digitaloceanspaces.com/adsvideo/mute.png"
+            alt="Mute">
+        </button>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- APP SCRIPT -->
+  <script src="./app2.js"></script>
+
+  <!-- MUTE / UNMUTE SCRIPT -->
+  <script>
+    const video = document.getElementById("video");
+    const muteButton = document.getElementById("muteButton");
+    const muteIcon = document.getElementById("muteIcon");
+
+    muteButton.addEventListener("click", function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+
+      if (video.muted) {
+        // UNMUTE
+        video.muted = false;
+        muteIcon.src = "https://thestreetnews.sgp1.digitaloceanspaces.com/adsvideo/unmute.png";
+        muteButton.setAttribute("aria-label", "Mute video");
+      } else {
+        // MUTE
+        video.muted = true;
+        muteIcon.src = "https://thestreetnews.sgp1.digitaloceanspaces.com/adsvideo/mute.png";
+        muteButton.setAttribute("aria-label", "Unmute video");
+      }
+    });
+
+    // Start video
+    video.play().catch(function (error) {
+      console.log("Autoplay was prevented by browser:", error);
+    });
+  </script>
+
+</body>
+
+</html>
