@@ -29,6 +29,30 @@
             /* align-items: center; */
             /* justify-content: center; */
         }
+
+        .mute-button {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 42px;
+      height: 42px;
+      padding: 0;
+      margin: 0;
+      border: none;
+      border-radius: 50%;
+      background: rgba(0, 0, 0, 0.25);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .mute-button img {
+      width: 28px;
+      height: 28px;
+      display: block;
+    }
     </style>
 
     
@@ -44,9 +68,45 @@
     <div class="banner" onclick="window.open(clickTag,'_blank')">
 
         <video id="video" autoplay loop muted playsinline defaultmuted preload="auto" width="100%">
-            <source src="./images/Comp 1.mp4" type="video/mp4" />
+            <source src="./images/Comp 1-2.mp4" type="video/mp4" />
         </video>
     </div>
+
+    <button
+          class="mute-button"
+          id="muteButton"
+          type="button"
+          aria-label="Unmute video">
+          <img
+            id="muteIcon"
+            src="https://thestreetnews.sgp1.digitaloceanspaces.com/adsvideo/mute.png"
+            alt="Mute">
+    </button>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const video = document.getElementById("video");
+        const muteButton = document.getElementById("muteButton");
+        const muteIcon = document.getElementById("muteIcon");
+
+        if (!video || !muteButton || !muteIcon) return;
+
+        muteButton.addEventListener("click", function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+
+          video.muted = !video.muted;
+          muteIcon.src = video.muted
+            ? "https://thestreetnews.sgp1.digitaloceanspaces.com/adsvideo/mute.png"
+            : "https://thestreetnews.sgp1.digitaloceanspaces.com/adsvideo/unmute.png";
+          muteButton.setAttribute("aria-label", video.muted ? "Unmute video" : "Mute video");
+        });
+
+        video.play().catch(function (error) {
+          console.log("Autoplay was prevented by browser:", error);
+        });
+      });
+    </script>
 
 </body>
 
